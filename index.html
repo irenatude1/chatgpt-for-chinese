@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChatGPT 中文版使用指南｜国内访问 GPT-4o / GPT-5</title>
+  <meta name="description" content="ChatGPT 中文版国内使用指南，整理国内访问方式、GPT-4o、GPT-5 使用入口、官网教程、应用场景与安全建议。" />
+
+  <style>
+    :root {
+      --primary: #10a37f;
+      --primary-dark: #0b7f64;
+      --bg: #f7f9fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC",
+        "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.8;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f766e, #10a37f);
+      color: #fff;
+      padding: 72px 0 64px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      margin-bottom: 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      font-size: 14px;
+    }
+
+    h1 {
+      max-width: 900px;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.18;
+      margin-bottom: 20px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-desc {
+      max-width: 760px;
+      font-size: 18px;
+      opacity: 0.94;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      color: #fff;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    main {
+      padding: 42px 0 70px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    nav {
+      position: sticky;
+      top: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    nav h2 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    nav a {
+      display: block;
+      padding: 8px 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      margin-bottom: 22px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 16px;
+      line-height: 1.35;
+    }
+
+    h3 {
+      font-size: 20px;
+      margin: 22px 0 10px;
+    }
+
+    p {
+      margin-bottom: 14px;
+    }
+
+    ul {
+      padding-left: 22px;
+      margin: 12px 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .highlight {
+      padding: 20px;
+      border-radius: 14px;
+      background: #ecfdf5;
+      border: 1px solid #bbf7d0;
+      margin-top: 16px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .card {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    th,
+    td {
+      padding: 14px;
+      border: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f3f4f6;
+    }
+
+    code,
+    pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    pre {
+      padding: 16px;
+      border-radius: 14px;
+      background: #111827;
+      color: #e5e7eb;
+      overflow-x: auto;
+      margin: 14px 0;
+    }
+
+    .faq details {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 34px 0;
+      border-top: 1px solid var(--border);
+      background: #fff;
+    }
+
+    @media (max-width: 860px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        position: static;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <span class="badge">2026 年 6 月更新 · 中文用户指南</span>
+      <h1>ChatGPT 中文版使用指南：国内访问 GPT-4o / GPT-5</h1>
+      <p class="hero-desc">
+        本页面整理 ChatGPT 中文版国内使用方式、镜像入口、官网教程、应用场景、提问技巧与安全建议，帮助中文用户快速上手 AI 工具。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://chat.gptmirrors.com/guide.html" target="_blank" rel="noopener">
+          立即体验 ChatGPT 中文版
+        </a>
+        <a class="btn btn-secondary" href="#guide">查看使用指南</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container grid">
+    <nav aria-label="页面目录">
+      <h2>目录</h2>
+      <a href="#intro">ChatGPT 是什么？</a>
+      <a href="#difficulty">为什么国内访问困难？</a>
+      <a href="#solutions">国内使用方案</a>
+      <a href="#scenarios">核心应用场景</a>
+      <a href="#prompt">新手提问技巧</a>
+      <a href="#faq">常见问题</a>
+      <a href="#security">安全建议</a>
+    </nav>
+
+    <div>
+      <section id="guide">
+        <h2>推荐入口</h2>
+        <p>
+          国内 ChatGPT 中文版镜像入口：
+          <a href="https://chat.gptmirrors.com/guide.html" target="_blank" rel="noopener">
+            https://chat.gptmirrors.com/guide.html
+          </a>
+        </p>
+
+        <div class="highlight">
+          <strong>适合人群：</strong>
+          <p>希望在国内网络环境下快速体验 ChatGPT、GPT-4o、GPT-5 相关能力的中文用户。</p>
+        </div>
+      </section>
+
+      <section id="intro">
+        <h2>ChatGPT 是什么？</h2>
+        <p>
+          ChatGPT 是由 OpenAI 开发的人工智能对话工具，能够理解并生成自然语言文本。它可以辅助写作、翻译、编程、学习、办公和资料整理。
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <strong>写作助手</strong>
+            <p>生成文章、邮件、文案、脚本、标题和摘要。</p>
+          </div>
+          <div class="card">
+            <strong>编程助手</strong>
+            <p>编写代码、解释逻辑、调试错误、学习新语言。</p>
+          </div>
+          <div class="card">
+            <strong>学习助手</strong>
+            <p>解释概念、总结资料、制定计划、外语练习。</p>
+          </div>
+          <div class="card">
+            <strong>办公助手</strong>
+            <p>整理会议纪要、生成 PPT 大纲、优化日报周报。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="difficulty">
+        <h2>为什么国内访问 ChatGPT 较困难？</h2>
+        <h3>1. 网络访问限制</h3>
+        <p>部分国内用户直接访问 ChatGPT 官网时，可能会遇到页面无法打开、连接失败或加载缓慢等问题。</p>
+
+        <pre><code>https://chat.openai.com</code></pre>
+
+        <h3>2. 注册与支付门槛</h3>
+        <p>部分用户还可能遇到海外手机号验证、支付方式限制、账号登录不稳定等问题。</p>
+      </section>
+
+      <section id="solutions">
+        <h2>国内使用 ChatGPT 的两种方案</h2>
+
+        <h3>方案一：使用国内 ChatGPT 镜像网站</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>优势</th>
+              <th>说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>访问方便</td>
+              <td>国内网络可直接打开，适合新手。</td>
+            </tr>
+            <tr>
+              <td>上手简单</td>
+              <td>通常支持邮箱注册或免注册体验。</td>
+            </tr>
+            <tr>
+              <td>中文体验好</td>
+              <td>界面和交互更贴合中文用户。</td>
+            </tr>
+            <tr>
+              <td>成本较低</td>
+              <td>部分平台提供免费额度或较低套餐。</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>方案二：使用 ChatGPT 官方网站</h3>
+        <p>
+          如果你具备稳定网络环境、可用账号和支付方式，也可以直接使用 OpenAI 官方 ChatGPT，体验完整官方功能。
+        </p>
+      </section>
+
+      <section id="scenarios">
+        <h2>ChatGPT 核心应用场景</h2>
+        <ul>
+          <li><strong>内容创作：</strong>文章、博客、广告文案、短视频脚本、小说。</li>
+          <li><strong>编程辅助：</strong>代码生成、Bug 调试、代码解释、正则表达式。</li>
+          <li><strong>学习研究：</strong>论文总结、概念解释、学习计划、语言练习。</li>
+          <li><strong>办公效率：</strong>邮件润色、会议纪要、PPT 大纲、数据分析。</li>
+          <li><strong>日常生活：</strong>旅行计划、菜谱推荐、健身计划、文本翻译。</li>
+        </ul>
+      </section>
+
+      <section id="prompt">
+        <h2>新手如何向 ChatGPT 提问？</h2>
+        <p>推荐使用以下公式：</p>
+
+        <pre><code>角色 + 任务 + 要求 + 背景 = 高质量回答</code></pre>
+
+        <h3>示例 Prompt</h3>
+        <pre><code>你现在是一名专业旅行规划师。
+请为我设计一个为期 5 天的东京自由行计划。
+要求包含至少一个动漫主题景点和一个自然风光景点，预算尽量经济实惠。
+我是一个人旅行，喜欢美食和摄影。</code></pre>
+      </section>
+
+      <section id="faq" class="faq">
+        <h2>常见问题 FAQ</h2>
+
+        <details>
+          <summary>ChatGPT 是完全免费的吗？</summary>
+          <p>ChatGPT 官方提供免费版本，但部分高级功能通常需要订阅。国内镜像站一般会提供免费试用额度。</p>
+        </details>
+
+        <details>
+          <summary>国内 ChatGPT 镜像网站安全吗？</summary>
+          <p>建议选择 HTTPS、口碑较好、使用人数较多的平台。不要输入密码、身份证号、银行卡号、验证码等敏感信息。</p>
+        </details>
+
+        <details>
+          <summary>ChatGPT 中文版和官网数据互通吗？</summary>
+          <p>通常不互通。镜像网站的对话记录可能保存在镜像网站本身，而不是 OpenAI 官网账户中。</p>
+        </details>
+
+        <details>
+          <summary>GPT-4o 和 GPT-4 有什么区别？</summary>
+          <p>GPT-4o 在速度、多语言能力和多模态体验方面更适合日常高频使用。</p>
+        </details>
+      </section>
+
+      <section id="security">
+        <h2>数据隐私与安全建议</h2>
+        <ul>
+          <li>不要输入个人敏感信息。</li>
+          <li>不要上传证件、合同、银行卡截图等重要资料。</li>
+          <li>AI 生成内容需要人工核实。</li>
+          <li>重要决策不要完全依赖 AI。</li>
+          <li>优先选择可信赖的平台。</li>
+        </ul>
+
+        <div class="highlight">
+          <strong>总结：</strong>
+          <p>
+            ChatGPT 可以显著提升学习、办公、写作和编程效率。国内用户可根据自身需求选择官网或国内镜像入口。
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 ChatGPT 中文版使用指南 · 本页面仅作信息整理与使用参考</p>
+  </footer>
+</body>
+</html>
